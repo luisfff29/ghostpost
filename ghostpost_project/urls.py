@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ghostpost_app.views import urlpatterns as more_urls
+from ghostpost_app.urls import urlpatterns as more_urls
 
 
 urlpatterns = [
