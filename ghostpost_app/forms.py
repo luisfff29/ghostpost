@@ -5,7 +5,7 @@ from ghostpost_app.models import GhostPost
 class AddPost(forms.ModelForm):
     class Meta:
         model = GhostPost
-        fileds = '__all__'
+        fields = '__all__'
 
 # class GhostPost(models.Model):
 #     text = models.CharField(max_length=280)
