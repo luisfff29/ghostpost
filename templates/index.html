@@ -14,8 +14,8 @@
       <li>
         {{ post.text }}<br />
         {{ post }}<br />
-        {{ post.up_vote }}<br />
-        {{ post.down_vote }}<br />
+        {{ post.up_vote }} <a href='/up_vote/{{ post.id }}/'>Click for UP VOTES</a><br />
+        {{ post.down_vote }} <a href='/down_vote/{{ post.id }}/'>Click for DOWN VOTES</a><br />
         {{ post.date }}
       </li>
       {% endfor %}

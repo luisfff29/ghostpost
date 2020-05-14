@@ -22,3 +22,17 @@ def addpost(request):
 
     form = GhostForm()
     return render(request, 'addpost.html', {'form': form})
+
+
+def for_up_vote(request, post_id):
+    post = GhostModel.objects.get(id=post_id)
+    post.up_vote += 1
+    post.save()
+    return HttpResponseRedirect(reverse('homepage'))
+
+
+def for_down_vote(request, post_id):
+    post = GhostModel.objects.get(id=post_id)
+    post.down_vote += 1
+    post.save()
+    return HttpResponseRedirect(reverse('homepage'))
