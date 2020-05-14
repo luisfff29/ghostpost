@@ -9,7 +9,17 @@
 
   <body>
     <h1>The GhostPost Machine</h1>
-
+    <ul>
+      {% for post in data %}
+      <li>
+        {{ post.text }}<br />
+        {{ post }}<br />
+        {{ post.up_vote }}<br />
+        {{ post.down_vote }}<br />
+        {{ post.date }}
+      </li>
+      {% endfor %}
+    </ul>
   </body>
 
 </html>

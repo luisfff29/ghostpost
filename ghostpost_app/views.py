@@ -6,13 +6,18 @@ from ghostpost_app.forms import AddPost
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    data = GhostPost.objects.all()
+    return render(request, 'index.html', {'data': data})
 
 
 def submitpage(request):
     if request.method == "POST":
         form = AddPost(request.POST)
-        form.save()
+        if form.is_valid():
+            data = form.cleaned_data
+            GhostPost.objects.create(
+                text=data['text'], boast_or_roast=data['boast_or_roast']
+            )
         return HttpResponseRedirect(reverse('homepage'))
 
     form = AddPost()

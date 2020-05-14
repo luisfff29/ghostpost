@@ -8,9 +8,12 @@
   </head>
 
   <body>
-    <h1>Submit page</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
+    <form action="/submitpage/" method='post'>
+      <h1>Submit page</h1>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value='Submit'>
+    </form>
   </body>
 
 </html>

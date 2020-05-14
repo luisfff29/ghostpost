@@ -4,5 +4,5 @@ from ghostpost_app import views
 
 urlpatterns = [
     path('', views.index, name='homepage'),
-    path('submitpage', views.submitpage, name='submitpage'),
+    path('submitpage/', views.submitpage, name='submitpage'),
 ]
