@@ -6,7 +6,7 @@ from django.utils import timezone
 BOOL_CHOICES = ((True, 'Boast'), (False, 'Roast'))
 
 
-class GhostPost(models.Model):
+class GhostModel(models.Model):
     text = models.CharField(max_length=280)
     boast_or_roast = models.BooleanField(choices=BOOL_CHOICES, null=False)
     up_vote = models.IntegerField(default=0)

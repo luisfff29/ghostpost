@@ -1,8 +1,8 @@
 from django import forms
-from ghostpost_app.models import GhostPost
+from ghostpost_app.models import GhostModel
 
 
-class AddPost(forms.ModelForm):
+class GhostForm(forms.ModelForm):
     class Meta:
-        model = GhostPost
+        model = GhostModel
         fields = ['text', 'boast_or_roast']

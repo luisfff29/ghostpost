@@ -1,6 +1,6 @@
 from django.contrib import admin
-from ghostpost_app.models import GhostPost
+from ghostpost_app.models import GhostModel
 
 
 # Register your models here.
-admin.site.register(GhostPost)
+admin.site.register(GhostModel)
