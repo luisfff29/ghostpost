@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-
-  <body>
-    <form action="/addpost/" method='post'>
-      <h1>Submit page</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value='Submit'>
-    </form>
-  </body>
-
-</html>
+{% extends 'index.html' %}
+{% block body_block %}
+<form action="/addpost/" method='post'>
+  <h1>Submit page</h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value='Submit'>
+</form>
+{% endblock %}
