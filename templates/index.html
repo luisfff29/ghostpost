@@ -13,18 +13,28 @@
   <body>
     <div class="container">
       {% block body_block %}
-      <h1>The GhostPost Machine</h1>
-      <ul>
-        {% for post in data %}
-        <li>
-          {{ post.text }}<br />
-          {{ post }}<br />
-          {{ post.up_vote }} <a href='/up_vote/{{ post.id }}/'>Click for UP VOTES</a><br />
-          {{ post.down_vote }} <a href='/down_vote/{{ post.id }}/'>Click for DOWN VOTES</a><br />
-          {{ post.date }}
-        </li>
-        {% endfor %}
-      </ul>
+      <h1 class='text-center mt-5'>The GhostPost Machine</h1>
+      {% for post in data %}
+      <div class="card w-75 mx-auto bg-light mb-3">
+        <div class="card-body">
+          <h5 class="card-header border-dark">{{ post }}</h5>
+          <p class="card-text">{{ post.text }}</p>
+          <p class='text-right'>
+            <a href='/up_vote/{{ post.id }}/'>
+              <button type="button" class="btn btn-outline-primary btn-sm">
+                Up vote(s) <span class="badge badge-light">{{ post.up_vote }}</span>
+              </button>
+            </a>
+            <a href='/down_vote/{{ post.id }}/'>
+              <button type="button" class="btn btn-outline-danger btn-sm">
+                Down vote(s) <span class="badge badge-light">{{ post.down_vote }}</span>
+              </button>
+            </a>
+          </p>
+          <div class='card-footer text-muted'>{{ post.date }}</div>
+        </div>
+      </div>
+      {% endfor %}
       {% endblock %}
     </div>
   </body>
