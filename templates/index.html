@@ -16,9 +16,12 @@
       <h1 class='text-center mt-5'>The GhostPost Machine</h1>
       <div class="row justify-content-around text-center my-2">
         <a class="" href="addpost/"><button class='btn btn-info'>Add a post</button></a>
-        <a class="disabled" aria-disabled="true">Disabled</a>
+        <form action='' method="POST" class="form-inline">
+          {% csrf_token %}
+          {{form}}
+        </form>
       </div>
-      {% for post in data %}
+      {% for post in result %}
       <div class="card w-75 mx-auto bg-light mb-3">
         <div class="card-body">
           <h5 class="card-header border-dark">{{ post }}</h5>
