@@ -3,11 +3,15 @@
 {% block body_block %}
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'homepage' %}">Home</a>
+  {% if form %}
   <form action="" method='POST'>
     {% csrf_token %}
-    <span class='text-light'>{{form.secret_key.label}}:</span>
+    <span class='text-light'>{{form.secret_key.label}}: </span>
     {{form.secret_key}}
   </form>
+  {% else %}
+  <button type="button" class="btn btn-danger">Delete Post</button>
+  {% endif %}
 </nav>
 <div class="jumbotron">
   <div class="container">
