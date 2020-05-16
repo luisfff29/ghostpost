@@ -29,7 +29,7 @@ def addpost(request):
             GhostModel.objects.create(
                 text=data['text'], boast_or_roast=data['boast_or_roast'], magic=magic_str
             )
-        return HttpResponseRedirect(reverse('homepage'))
+        return render(request, 'magic.html', {'key': magic_str})
 
     form = GhostForm()
     return render(request, 'addpost.html', {'form': form})
