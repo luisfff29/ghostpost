@@ -3,6 +3,11 @@
 {% block body_block %}
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'homepage' %}">Home</a>
+  <form action="" method='POST'>
+    {% csrf_token %}
+    <span class='text-light'>{{form.secret_key.label}}:</span>
+    {{form.secret_key}}
+  </form>
 </nav>
 <div class="jumbotron">
   <div class="container">

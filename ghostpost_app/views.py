@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from ghostpost_app.models import GhostModel
-from ghostpost_app.forms import GhostForm, AddFilter
+from ghostpost_app.forms import GhostForm, AddFilter, DeletePost
 from ghostpost_app.helpers import order_posts, get_magic_str
 
 
@@ -50,8 +50,17 @@ def for_down_vote(request, post_id):
 
 
 def post_details(request, post_id):
+    secret_key = GhostModel.objects.get(id=post_id).magic
+
+    if request.method == 'POST':
+        form = DeletePost(request.POST)
+        if form['secret_key'].value() == secret_key:
+            return HttpResponseRedirect(reverse("magic_post", kwargs={"magic": secret_key}))
+
     data = GhostModel.objects.get(id=post_id)
-    return render(request, 'posts.html', {'data': data})
+    form = DeletePost()
+
+    return render(request, 'posts.html', {'data': data, 'form': form})
 
 
 def magic_post(request, magic):

@@ -24,3 +24,7 @@ class AddFilter(forms.Form):
             'onchange': 'submit()'
         }
     ))
+
+
+class DeletePost(forms.Form):
+    secret_key = forms.CharField(widget=forms.TextInput)
