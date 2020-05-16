@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 {% extends 'index.html' %}
 {% block body_block %}
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'homepage' %}">Home</a>
+</nav>
 <div class="jumbotron">
   <div class="container">
     <h1>{{data}}</h1>
