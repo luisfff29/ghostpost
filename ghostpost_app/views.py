@@ -46,3 +46,8 @@ def for_down_vote(request, post_id):
     post.down_vote += 1
     post.save()
     return HttpResponseRedirect(reverse('homepage'))
+
+
+def post_details(request, post_id):
+    data = GhostModel.objects.get(id=post_id)
+    return render(request, 'posts.html', {'data': data})

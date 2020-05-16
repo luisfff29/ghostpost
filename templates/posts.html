@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block body_block %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>{{data}}</h1>
+    <p>{{data.text}}</p>
+    <p>Up votes: {{data.up_vote}}</p>
+    <p>Down votes: {{data.down_vote}}</p>
+    <p>{{data.date}}</p>
+  </div>
+</div>
+{% endblock %}
