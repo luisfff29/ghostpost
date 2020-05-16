@@ -38,14 +38,14 @@ def for_up_vote(request, post_id):
     post = GhostModel.objects.get(id=post_id)
     post.up_vote += 1
     post.save()
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
 
 
 def for_down_vote(request, post_id):
     post = GhostModel.objects.get(id=post_id)
     post.down_vote += 1
     post.save()
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
 
 
 def post_details(request, post_id):

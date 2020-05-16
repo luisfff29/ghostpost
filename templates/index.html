@@ -25,18 +25,14 @@
       <div class="card w-75 mx-auto bg-light mb-3">
         <div class="card-body">
           <h5 class="card-header border-dark">{{ post }}</h5>
-          <p class="card-text">{{ post.text }}</p>
+          <a href="{% url 'posts' post.id %}" class="card-text">See more details...</a>
           <p class='text-right'>
-            <a href='/up_vote/{{ post.id }}/'>
-              <button type="button" class="btn btn-outline-primary btn-sm">
-                Up vote(s) <span class="badge badge-light">{{ post.up_vote }}</span>
-              </button>
-            </a>
-            <a href='/down_vote/{{ post.id }}/'>
-              <button type="button" class="btn btn-outline-danger btn-sm">
-                Down vote(s) <span class="badge badge-light">{{ post.down_vote }}</span>
-              </button>
-            </a>
+            <span class="alert alert-primary" role="alert">
+              Up vote(s) <span class="badge badge-light">{{ post.up_vote }}</span>
+            </span>
+            <span class="alert alert-danger" role="alert">
+              Down vote(s) <span class="badge badge-light">{{ post.down_vote }}</span>
+            </span>
           </p>
           <div class='card-footer text-muted'>{{ post.date }}</div>
         </div>
