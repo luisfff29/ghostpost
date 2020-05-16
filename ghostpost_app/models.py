@@ -12,6 +12,7 @@ class GhostModel(models.Model):
     up_vote = models.IntegerField(default=0)
     down_vote = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
+    magic = models.CharField(max_length=6)
 
     def __str__(self):
         return 'Boast' if self.boast_or_roast else 'Roast'
