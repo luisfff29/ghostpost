@@ -10,7 +10,7 @@
     {{form.secret_key}}
   </form>
   {% else %}
-  <button type="button" class="btn btn-danger">Delete Post</button>
+  <a href="{% url 'delete_post' data.magic %}"><button type="button" class="btn btn-danger">Delete Post</button></a>
   {% endif %}
 </nav>
 <div class="jumbotron">

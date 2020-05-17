@@ -78,3 +78,8 @@ def post_details(request, post_id):
 def magic_post(request, magic):
     data = GhostModel.objects.get(magic=magic)
     return render(request, 'posts.html', {'data': data})
+
+
+def delete_post(request, magic):
+    GhostModel.objects.filter(magic=magic).delete()
+    return HttpResponseRedirect(reverse('homepage'))
