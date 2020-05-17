@@ -19,16 +19,24 @@
     <p>{{data.text}}</p>
     <p>{{data.date}}</p>
     <p class='text-right'>
-      <a href="{% url 'up_vote' data.id %}">
-        <button type="button" class="btn btn-outline-primary btn-sm">
-          Up vote(s) <span class="badge badge-light">{{ data.up_vote }}</span>
-        </button>
-      </a>
-      <a href="{% url 'down_vote' data.id %}">
-        <button type="button" class="btn btn-outline-danger btn-sm">
-          Down vote(s) <span class="badge badge-light">{{ data.down_vote }}</span>
-        </button>
-      </a>
+      {% if form %}
+      <a href="{% url 'up_vote_int' data.id %}">
+        {% else %}
+        <a href="{% url 'up_vote_str' data.magic %}">
+          {% endif %}
+          <button type="button" class="btn btn-outline-primary btn-sm">
+            Up vote(s) <span class="badge badge-light">{{ data.up_vote }}</span>
+          </button>
+        </a>
+        {% if form %}
+        <a href="{% url 'down_vote_int' data.id %}">
+          {% else %}
+          <a href="{% url 'down_vote_str' data.magic %}">
+            {% endif %}
+            <button type="button" class="btn btn-outline-danger btn-sm">
+              Down vote(s) <span class="badge badge-light">{{ data.down_vote }}</span>
+            </button>
+          </a>
     </p>
   </div>
 </div>

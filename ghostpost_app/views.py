@@ -35,18 +35,30 @@ def addpost(request):
     return render(request, 'addpost.html', {'form': form})
 
 
-def for_up_vote(request, post_id):
-    post = GhostModel.objects.get(id=post_id)
+def for_up_vote(request, post_id=None, magic=None):
+    if post_id:
+        post = GhostModel.objects.get(id=post_id)
+    else:
+        post = GhostModel.objects.get(magic=magic)
     post.up_vote += 1
     post.save()
-    return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
+    if post_id:
+        return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
+    else:
+        return HttpResponseRedirect(reverse('magic_post', kwargs={'magic': magic}))
 
 
-def for_down_vote(request, post_id):
-    post = GhostModel.objects.get(id=post_id)
+def for_down_vote(request, post_id=None, magic=None):
+    if post_id:
+        post = GhostModel.objects.get(id=post_id)
+    else:
+        post = GhostModel.objects.get(magic=magic)
     post.down_vote += 1
     post.save()
-    return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
+    if post_id:
+        return HttpResponseRedirect(reverse('posts', kwargs={'post_id': post_id}))
+    else:
+        return HttpResponseRedirect(reverse('magic_post', kwargs={'magic': magic}))
 
 
 def post_details(request, post_id):
