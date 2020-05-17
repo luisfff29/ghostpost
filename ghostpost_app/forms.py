@@ -10,7 +10,8 @@ class GhostForm(forms.ModelForm):
     text = forms.CharField(widget=forms.Textarea(
         attrs={
             'placeholder': 'Enter text here...',
-            'class': 'form-control'
+            'class': 'form-control',
+            'rows': '3'
         }))
 
     class Meta:
