@@ -23,6 +23,6 @@ Create a Django application with the following features:
 - Page to submit a boast or a roast
 - Add a post deletion method that works for both boasts and roasts on the detail page.
   When a boast or a roast is created, it should have a random 6 character string associated with it. Every post now has two URLS... but one is public and one is private:
-  _ `localhost:8000/posts/1`
-  _ `localhost:8000/posts/abcdef`
+  - `localhost:8000/posts/1`
+  - `localhost:8000/posts/abcdef`
 - The one that ends in an ID should display a _public_ version of the detail page and the one that ends in the _secret key_ should be the same content but with an additional button that allows you to delete the content
