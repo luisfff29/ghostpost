@@ -11,5 +11,5 @@ urlpatterns = [
     path('down_vote/<str:magic>/', views.for_down_vote, name='down_vote_str'),
     path('posts/<int:post_id>/', views.post_details, name='posts'),
     path('posts/<str:magic>/', views.magic_post, name='magic_post'),
-    path('delete/<int:post_id>/', views.delete_post, name='delete_post'),
+    path('delete/<str:magic>/', views.delete_post, name='delete_post'),
 ]
